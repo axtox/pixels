@@ -1,0 +1,9 @@
+{
+  "name": "Lamps On Map",
+  "version": "0.5.0",
+  "title": "Lamps On Map",
+  "author": "axtox",
+  "homepage": "localhost",
+  "description": "Shows colored lamps directly on map, tracking any changes (in real-time)",
+  "factorio_version" : "0.14"
+}
