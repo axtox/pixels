@@ -4,6 +4,7 @@
   "title": "Lamps On Map",
   "author": "axtox",
   "homepage": "localhost",
-  "description": "Shows colored lamps directly on map, tracking any changes (in real-time)",
+  "dependencies": ["base", "? AsphaltRoads", "? alien-biomes", "? various-tiles-mod", "? SnowMod", "? ScorchedEarth"],
+  "description": "Shows colored lamps with enabled coloring conditions directly on map, tracking any changes (in real-time)",
   "factorio_version" : "0.14"
 }
