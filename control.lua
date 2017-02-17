@@ -25,7 +25,7 @@ end
 --debug
 function print(text)
 	for _, player in pairs(game.players) do
-		--player.print(text)
+		player.print(text)
 	end
 end
 
@@ -137,7 +137,7 @@ save_coroutine = coroutine.create(function(colored_lamp_entity_index, colored_la
 				--start_index = start_index + counttable_length_1(global.lamps_dictionary)
 			end
 		end
-		print("saved")
+		print("Lamps On Map has been saved")
 	end
 end)
 
@@ -333,7 +333,7 @@ function save_to_global()
 			--start_index = start_index + counttable_length_1(global.lamps_dictionary)
 		end
 	end
-	print("saved")
+		print("Lamps On Map has been saved")
 end
 
 function load_from_global()
@@ -383,7 +383,7 @@ function on_build_lamp(event_args)
 			if string.find(old_tile_name, "lamp") ~= nil then
 				local start_of_sequence, end_of_secuence = string.find(old_tile_name, "-map-")
 				old_tile_name =  string.sub(old_tile_name, 6, start_of_sequence - 1)
-				print("ha, strange")
+				--print("ha, strange")
 			end
 		end
 		update_lamp_in_dictionary(created_entity, old_tile_name)
@@ -394,7 +394,7 @@ function on_mined_lamp(event_args)
 	local mined_entity = event_args.entity
 	if mined_entity.name == "small-lamp" then
 		local lamp_dictionary_index = encode_lamp_coordinates_index(mined_entity.position.x, mined_entity.position.y)
-		print(lamp_dictionary_index)
+		--print(lamp_dictionary_index)
 		local lamp_surface_name = mined_entity.surface.name
 		if global_lamps_dictionary[lamp_surface_name] == nil then
 			error("Something wrong! There is no such lamp in surface " .. lamp_surface_name)
@@ -639,11 +639,11 @@ function on_initialize()
 		else
 			load_from_global()
 		end
-		print("initialized " .. all_lamps_quantity .. " lamps found " .. quantity_of_lamps_in_dictionary .. " was " .. tostring(all_lamps_quantity == quantity_of_lamps_in_dictionary))
+		--print("initialized " .. all_lamps_quantity .. " lamps found " .. quantity_of_lamps_in_dictionary .. " was " .. tostring(all_lamps_quantity == quantity_of_lamps_in_dictionary))
 	else
 		global.lamps_dictionary = {}
 		update_all_lamps()
-		print("initialized not used before")
+		--print("initialized not used before")
 	end
 	
 	script.on_event(defines.events.on_tick, nil)
@@ -651,7 +651,7 @@ function on_initialize()
 end
 
 function on_player_joined(event_args)
-	print("JOINED " .. game.players[event_args.player_index].name)
+	--print("JOINED " .. game.players[event_args.player_index].name)
 	on_initialize()
 end
 
@@ -666,5 +666,5 @@ script.on_event(defines.events.on_robot_built_tile, on_another_tile_build)
 script.on_event(defines.events.on_player_joined_game, on_player_joined)
 
 script.on_event(on_entity_changed, function(entity)
-	print("event shot!!!" .. tostring(entity))
+	--print("event shot!!!" .. tostring(entity))
 end)
