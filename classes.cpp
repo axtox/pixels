@@ -1,3 +1,7 @@
+/*	
+ *	This file contains c++ pseudo-code of all classes and object types that was used in program 
+ */
+
 #include <factorioapi>
 using namespace factorio;
 
@@ -6,6 +10,20 @@ enum Colors : string { "red", "green", "blue", "yellow", "pink", "cyan", "white"
 struct Position {
 	int x;
 	int y;
+}
+
+class global {
+	public:
+		ColoredLampEntity[]	lamps_dictionary;
+		int[][] lamps_positions;
+		Settings settings;
+}
+
+class Settings {
+	public:
+		string defined_base_tile;
+		int defined_lamps_per_iteration;
+		int defined_iteration_frequency;
 }
 
 ///<summary>

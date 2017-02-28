@@ -48,7 +48,7 @@ base_tile = {
 
 data.raw["lamp"]["small-lamp"].flags = { "placeable-neutral", "player-creation", "not-on-map" }
 
---checks if tile collision_mask has ground-tile option of not
+-- checks if tile collision_mask has ground-tile option or not
 function ground_collision_check(collision_mask)
 	for _, mask in pairs(collision_mask) do
 		if mask == "ground-tile" then
