@@ -21,11 +21,13 @@ function pairs (value)
 end
 
 --helpers functions
+-- table lengh - to be adjusted/deleted
 function table_length(T)
 	local count = 0
 	for _ in pairs(T) do count = count + 1 end
 	return count
 end
+-- table lengh - for debug only to be deleted
 function table_length_1(T)
 	local count, is_same = 0, false
 	for _,__t in pairs(T) do 
@@ -35,7 +37,7 @@ function table_length_1(T)
 	end
 	return count
 end
-
+-- table lengh - for debug only to be deleted
 function table_length_2(T)
 	local count, is_same = 0, false
 	for _,__t in pairs(T) do 
@@ -47,19 +49,17 @@ function table_length_2(T)
 	end
 	return count
 end
-
---debug
-function print(text)
-	for _, player in pairs(game.players) do
-		player.print(text)
-	end
-end
-
---debug
+-- debug
 function print_table(object)
 	for key,value in pairs(object) do
 		print("found member " .. key .. " with " .. tostring(value))
 	end
+end
+
+--- Prints text to global game chat
+-- @param text String which will be displayed to all players
+function print(text)
+	game.print(text)
 end
 
 function table.removeKey(t, k)
@@ -174,6 +174,7 @@ circuit_wires_types = {
 }
 
  --Virtual signals enum
+ --TODO: made it generic (more colors can be added by factorio team or mod community)
 virtual_signals = {
 	["red"] = {
 		name = "signal-red",
@@ -265,6 +266,13 @@ function ColoredLampEntity:_init(entity, LampTile)
 	self.tile = LampTile
 end
 
+--- Generates special tile prototype name for given color
+-- All lamps can be seen on map only by adding tile under them - this method
+-- helps us retrieve name of current color tile prototype.
+-- @param color_name Name of the color which tile need to be retrieved
+-- @return String with given pattern 'lamp-[base_tile_from_settings]-map-[color_name]'.
+-- Example: Given color is 'grey' and base tile is 'grass', generated tile prototype 
+-- name will be lamp-grass-map-grey
 function generate_lamp_tile_name(color_name)
 	return "lamp-" .. defined_base_tile .. "-map-" .. color_name
 end
