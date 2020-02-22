@@ -40,10 +40,11 @@ base_tile = {
 	decorative_removal_probability = 0.0,
 	layer = 61,
 	needs_correction = false,
-	type = "tile",
 	vehicle_friction_modifier = 1.6,
 	walking_speed_modifier = 1.0
 }
+
+user_tile = settings.startup["pixels-base-tile"].value
 
 -- checks if tile collision_mask has ground-tile option or not
 function has_ground_collision(collision_mask)
@@ -56,14 +57,15 @@ function has_ground_collision(collision_mask)
 end
 
 for color_index, color in pairs(colors) do
-	local tile = util.table.deepcopy(base_tile)
-	local original_tile = data.raw["tile"][defined_base_tile]
-	if not has_ground_collision(original_tile.collision_mask) then
-		original_tile = data.raw["tile"]["concrete"]
+
+	local origin_tile = data.raw.tile[user_tile]
+	if not has_ground_collision(origin_tile.collision_mask) then
+		origin_tile = data.raw.tile.concrete
 	end
-	tile.name = "lamp-" .. defined_base_tile .. "-map-" .. color_index
+
+	local tile = util.merge{origin_tile, base_tile}
+	tile.name = "lamp-" .. user_tile .. "-map-" .. color_index
 	tile.map_color = color.map_color
-	tile.variants = util.table.deepcopy(original_tile.variants)
-	tile.walking_sound = util.table.deepcopy(original_tile.walking_sound)
+
 	data:extend({tile})
 end
