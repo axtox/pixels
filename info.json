@@ -1,10 +1,10 @@
 {
-  "name": "Lamps On Map",
-  "version": "0.5.1",
-  "title": "Lamps On Map",
+  "name": "Pixels",
+  "version": "0.6.0",
+  "title": "Pixels",
   "author": "axtox",
   "homepage": "localhost",
-  "dependencies": ["base", "? AsphaltRoads", "? alien-biomes", "? various-tiles-mod", "? SnowMod", "? ScorchedEarth"],
-  "description": "Shows colored lamps with enabled coloring conditions directly on map, tracking any changes (in real-time)",
-  "factorio_version" : "0.14"
+  "dependencies": ["base"],
+  "description": "Shows pixels directly on map, according to the curcuit color you provide, tracking any changes in real-time",
+  "factorio_version" : "0.18"
 }
