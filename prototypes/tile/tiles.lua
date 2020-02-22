@@ -33,12 +33,11 @@ colors = {
 }
 
 base_tile = {
-	ageing = 0,
 	collision_mask = {
 		"ground-tile"
 	},
 	can_be_part_of_blueprint = false,
-	decorative_removal_probability = 0.9,
+	decorative_removal_probability = 0.0,
 	layer = 61,
 	needs_correction = false,
 	type = "tile",
@@ -46,10 +45,8 @@ base_tile = {
 	walking_speed_modifier = 1.0
 }
 
-data.raw["lamp"]["small-lamp"].flags = { "placeable-neutral", "player-creation", "not-on-map" }
-
 -- checks if tile collision_mask has ground-tile option or not
-function ground_collision_check(collision_mask)
+function has_ground_collision(collision_mask)
 	for _, mask in pairs(collision_mask) do
 		if mask == "ground-tile" then
 			return true
@@ -61,7 +58,7 @@ end
 for color_index, color in pairs(colors) do
 	local tile = util.table.deepcopy(base_tile)
 	local original_tile = data.raw["tile"][defined_base_tile]
-	if not ground_collision_check(original_tile.collision_mask) then
+	if not has_ground_collision(original_tile.collision_mask) then
 		original_tile = data.raw["tile"]["concrete"]
 	end
 	tile.name = "lamp-" .. defined_base_tile .. "-map-" .. color_index
