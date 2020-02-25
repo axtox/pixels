@@ -46,25 +46,15 @@ base_tile = {
 
 user_tile = settings.startup["pixels-base-tile"].value
 
--- checks if tile collision_mask has ground-tile option or not
-function has_ground_collision(collision_mask)
-	for _, mask in pairs(collision_mask) do
-		if mask == "ground-tile" then
-			return true
-		end
-	end
-	return false
-end
-
-for color_index, color in pairs(colors) do
+for color_name, color in pairs(colors) do
 
 	local origin_tile = data.raw.tile[user_tile]
-	if not has_ground_collision(origin_tile.collision_mask) then
+	if origin_tile == nil then
 		origin_tile = data.raw.tile.concrete
 	end
 
 	local tile = util.merge{origin_tile, base_tile}
-	tile.name = "lamp-" .. user_tile .. "-map-" .. color_index
+	tile.name = "pixel-" .. color_name
 	tile.map_color = color.map_color
 
 	data:extend({tile})
