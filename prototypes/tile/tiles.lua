@@ -1,5 +1,5 @@
 --Colors enum
-colors = {
+local colors = {
 	["red"] = {
 		map_color = {r = .9, g = .0, b = .0}
 	},
@@ -32,7 +32,7 @@ colors = {
 	}
 }
 
-base_tile = {
+local base_tile = {
 	collision_mask = {
 		"ground-tile"
 	},
@@ -44,7 +44,7 @@ base_tile = {
 	walking_speed_modifier = 1.0
 }
 
-user_tile = settings.startup["pixels-base-tile"].value
+local user_tile = settings.startup["pixels-base-tile"].value
 
 for color_name, color in pairs(colors) do
 
