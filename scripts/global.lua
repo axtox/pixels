@@ -18,7 +18,7 @@ function initialize()
 
 
     Surface = global.current_surface
-    Pixels = global.all_pixels
+    Pixels = global.all_pixels[Surface.name]
 end
 
 function setup_global_variables()
@@ -27,5 +27,5 @@ function setup_global_variables()
         --re-setup meta tables
         --create local references to tables stored in the global table
     Surface = global.current_surface
-    Pixels = global.all_pixels
+    Pixels = global.all_pixels[Surface.name]
 end
