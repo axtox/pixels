@@ -1,8 +1,9 @@
 /*	
  *	This file contains c++ pseudo-code of all classes and object types that was used in program 
  */
-
 #include <factorioapi>
+#include <string> 
+using namespace std; 
 using namespace factorio;
 
 enum Colors : string { "red", "green", "blue", "yellow", "pink", "cyan", "white", "grey", "black", "default" }
