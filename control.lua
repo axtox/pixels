@@ -12,7 +12,7 @@ local pixel_event_filters=
     }
 }
 
---- Filter event invocation for mod's entities
+--[[- Filter event invocation for mod's entities
 -- Creating pixels
 script.set_event_filter(defines.events.on_built_entity, pixel_event_filters)
 script.set_event_filter(defines.events.on_robot_built_entity, pixel_event_filters)
@@ -22,13 +22,14 @@ script.set_event_filter(defines.events.on_robot_pre_mined, pixel_event_filters)
 script.set_event_filter(defines.events.on_entity_died, pixel_event_filters)
 -- Deconstructing pixels
 script.set_event_filter(defines.events.on_marked_for_deconstruction, pixel_event_filters)
-script.set_event_filter(defines.events.on_cancelled_deconstruction, pixel_event_filters)
+script.set_event_filter(defines.events.on_cancelled_deconstruction, pixel_event_filters)]]
+
 
 --- Registering game event handlers
 -- Creating pixels
-script.on_event(defines.events.on_built_entity, on_pixel_built)
+script.on_event(defines.events.on_built_entity, on_pixel_built, pixel_event_filters)
 -- Removing pixels
-script.on_event(defines.events.on_pre_player_mined_item, on_pixel_removed)
+script.on_event(defines.events.on_pre_player_mined_item, on_pixel_removed, pixel_event_filters)
 -- Regular check
 script.on_event(defines.events.on_tick, on_regular_check)
 -- Initialization
@@ -69,15 +70,6 @@ script.on_event(defines.events.on_player_built_tile, on_another_tile_build)
 script.on_event(defines.events.on_robot_built_tile, on_another_tile_build)
 on_marked_for_deconstruction
 
-type LuaEntityDiedEventFilters
-type LuaEntityMarkedForDeconstructionEventFilters
-type LuaPreRobotMinedEntityEventFilters
-type LuaRobotMinedEntityEventFilters
-type LuaPrePlayerMinedEntityEventFilters
-type LuaRobotBuiltEntityEventFilters
-type LuaEntityDeconstructionCancelledEventFilters
-type LuaPlayerBuiltEntityEventFilters
-type LuaPlayerMinedEntityEventFilters
 ]]--
 
 
