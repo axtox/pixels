@@ -1,10 +1,10 @@
+require('scripts.global')
+require('scripts.render.draw')
+
 function on_pixel_removed(event)
+    local pixel_id = event.entity.unit_number
 
-    local original_tile_name = Surface.get_hidden_tile(event.entity.position)
+    erase(Pixels[pixel_id])
 
-    Surface.set_tiles({{position = event.entity.position, name = original_tile_name}}, true)
-
-    Surface.set_hidden_tile(event.entity.position, nil)
-
-    Pixels[event.entity.unit_number] = nil
+    Pixels[pixel_id] = nil
 end

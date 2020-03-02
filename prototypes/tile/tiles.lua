@@ -1,4 +1,4 @@
-require('scripts/global')
+require('scripts.render.color')
 
 --required general properties for pixel tile
 local base_tile = {
