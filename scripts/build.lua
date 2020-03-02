@@ -5,7 +5,8 @@ function on_pixel_built(event)
     --make pixel reference
     local pixel = {
         tile = {
-            name = "pixel-default"
+            name = "pixel-default",
+            position = event.created_entity.position
         },
         diode = event.created_entity
     }
