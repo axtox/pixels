@@ -1,36 +1,4 @@
---Colors enum
-local colors = {
-	["red"] = {
-		map_color = {r = .9, g = .0, b = .0}
-	},
-	["green"] = {
-		map_color = {r = .0, g = .9, b = .0}
-	},
-	["blue"] = {
-		map_color = {r = .0, g = .0, b = .9}
-	},
-	["yellow"] = {
-		map_color = {r = .9, g = .9, b = .0}
-	},
-	["pink"] = {
-		map_color = {r = .9, g = 0, b = .6}
-	},
-	["cyan"] = {
-		map_color = {r = 0, g = .9, b = .9}
-	},
-	["white"] = {
-		map_color = {r = .9, g = .9, b = .9}
-	},
-	["grey"] = {
-		map_color = {r = .5, g = .5, b = .5}
-	},
-	["black"] = {
-		map_color = {r = .0, g = .0, b = .0}
-	},
-	["default"] = {
-		map_color = {r = .2, g = .2, b = .5}
-	}
-}
+require('scripts/global')
 
 --required general properties for pixel tile
 local base_tile = {
@@ -60,13 +28,13 @@ for _,item in pairs(data.raw.item) do
 	end
 end
 
-for color_name, color in pairs(colors) do
+for color_name, color in pairs(Colors) do
 	--combine required tile properties with user-selected tile
 	local tile = util.merge{origin_tile, base_tile}
 	--prevent possibility to mine tile under pixel diode
 	tile.minable = {mining_time = math.huge, count = 0}
 	tile.name = "pixel-" .. color_name
-	tile.map_color = color.map_color
+	tile.map_color = color
 
 	data:extend{tile}
 end
