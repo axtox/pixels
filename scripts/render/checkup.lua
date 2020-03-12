@@ -26,3 +26,17 @@ end
 function on_color_change_checkup(event)
   find_changed_pixels()
 end
+
+--[[
+local function print_next_three(previous_uid)
+  local current_uid = previous_uid
+
+  for i = 1, 3, 1 do
+    current_uid = next(Pixels, current_uid)
+    print(current_uid)
+  end
+
+  return current_uid
+end
+
+previous_uid = nil]]
