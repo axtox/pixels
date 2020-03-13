@@ -32,17 +32,21 @@ Colors = {
 	}
 }
 
+local function is_same_color(color1, color2)
+	return color1.r == color2.r and
+	color1.g == color2.g and
+	color1.b == color2.b
+end
+
 function get_color_name(color)
   --if color is nil then use default color
   color = color or Colors.default
 
   for color_name,constant_color in pairs(Colors) do
-      if color.r == constant_color.r and
-      color.g == constant_color.g and
-      color.b == constant_color.b then
+      if is_same_color(color, constant_color) then
           return color_name
       end
   end
-  
+
   return "default"
 end
