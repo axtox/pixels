@@ -3,6 +3,7 @@
  */
 #include "factorioapi.h"
 #include <string>
+#include <list>
 #include <map>
 
 using namespace std; 
@@ -14,7 +15,10 @@ namespace Pixels {
 	class global {
 		public:
 			LuaSurface Surface;
-			map<int, Pixel> Pixels;
+			// Collection of pixels stored by their unique ID and divided by Surface Name
+			map<string, map<int, Pixel>> Pixels;
+			// List of pending tiles to be updated in next interation. Becomes empty after each time
+			list<Tile> Redraw_Queue;
 	};
 	
 	class Tile {
