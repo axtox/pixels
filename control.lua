@@ -1,3 +1,14 @@
+--- This mod adds light-emmiting diods to the game.
+-- The Pixel concept consist of a Diod (originally the Lamp)
+-- and the colored tile under it. By replacing the tile based
+-- on lamp color the pixels can be seen on the map in real-time.
+-- Updates happening every 4 ticks, but on 3rd tick the regular
+-- check-up happening. During this procedure, mod searches for
+-- those pixels that changed thair color since last check-up
+-- and add those to the Redraw_Queue which will be interated
+-- on 4th tick and redrawn.
+-- @author axtox
+----
 require('scripts.global')
 require('scripts.build')
 require('scripts.remove')
@@ -24,8 +35,8 @@ script.on_event(defines.events.on_pre_player_mined_item, on_pixel_removed, pixel
 script.on_event(defines.events.on_robot_pre_mined, on_pixel_removed, pixel_event_filters)
 script.on_event(defines.events.on_entity_died, on_pixel_removed, pixel_event_filters)
 
--- Regular check
-script.on_nth_tick(3, on_color_change_checkup)
+-- Regular check and redraw
+script.on_nth_tick(3, on_changed_pixels_checkup)
 script.on_nth_tick(4, on_redraw)
 
 -- Initialization

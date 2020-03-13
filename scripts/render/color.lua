@@ -32,10 +32,6 @@ Colors = {
 	}
 }
 
-function get_tile_name(color)
-  return "pixel-" .. get_color_name(color)
-end
-
 function get_color_name(color)
   --if color is nil then use default color
   color = color or Colors.default
