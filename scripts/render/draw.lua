@@ -12,7 +12,7 @@ end
 function erase(pixel)
     local original_tile_name = Surface.get_hidden_tile(pixel.tile.position)
 
-    Surface.set_tiles({{position = pixel.tile.position, name = original_tile_name}}, false)
+    Surface.set_tiles({{position = pixel.tile.position, name = original_tile_name}}, true)
 
     Surface.set_hidden_tile(pixel.tile.position, nil)
 end
