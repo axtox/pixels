@@ -7,4 +7,5 @@ function on_pixel_removed(event)
     erase(Pixels[pixel_id])
 
     Pixels[pixel_id] = nil
+    Redraw_Queue.tiles[pixel_id] = nil
 end

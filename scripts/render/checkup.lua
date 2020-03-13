@@ -8,6 +8,7 @@ require('scripts.render.draw')
 -- @param color Color that Pixel is supposed to be displayed
 -- @return Returns tile name for the given color that should be placed under Pixel
 local function get_map_color(pixel, color)
+  -- if there's no electricity in diode then set color to Colors.black
   local color = pixel.diode.energy == 0 and Colors.black or color
 
   return get_tile_name(color)
@@ -20,9 +21,10 @@ end
 local function add_to_redraw_queue(pixel, color)
   local map_color_name = get_map_color(pixel, color)
 
+  -- add pixel to redraw queue only if color has been changed
   if map_color_name ~= pixel.tile.name then
       pixel.tile.name = map_color_name
-      table.insert(Redraw_Queue.tiles, pixel.tile)
+      Redraw_Queue.tiles[pixel.diode.unit_number] = pixel.tile
   end
 end
 

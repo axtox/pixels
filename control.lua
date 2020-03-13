@@ -37,7 +37,7 @@ script.on_event(defines.events.on_entity_died, on_pixel_removed, pixel_event_fil
 
 -- Regular check and redraw
 script.on_nth_tick(3, on_changed_pixels_checkup)
-script.on_nth_tick(4, on_redraw)
+script.on_nth_tick(1, on_redraw)
 
 -- Initialization
 script.on_init(initialize)
