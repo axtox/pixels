@@ -36,7 +36,6 @@ script.on_event(defines.events.on_robot_pre_mined, on_pixel_removed, pixel_event
 script.on_event(defines.events.on_entity_died, on_pixel_removed, pixel_event_filters)
 
 -- Regular check and redraw
-script.on_nth_tick(3, on_changed_pixels_checkup)
 script.on_nth_tick(1, on_redraw)
 
 -- Initialization
