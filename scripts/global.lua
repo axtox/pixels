@@ -17,7 +17,7 @@ function initialize()
     end
 
     global.current_surface = game.surfaces[1]
-    global.redraw_queue = { tiles = {}, last_updated_pixel_id = nil }
+    global.redraw_queue = { tiles = {} }
 
     setup_global_variables()
 end

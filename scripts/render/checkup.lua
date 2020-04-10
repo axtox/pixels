@@ -28,27 +28,23 @@ local function add_to_redraw_queue(pixel, color)
   end
 end
 
-function scan_changed_pixels()
+local function register_changed_pixels()
+  -- if color changed add to queue
+  for _,pixel in pairs(Pixels) do
 
-  local id, pixel
-  for i = 1, 350, 1 do
-    -- get next pixel
-    id, pixel = next(Pixels, Redraw_Queue.last_updated_pixel_id)
-    if pixel == nil then
-      id, pixel = next(Pixels, nil)
-    end
+      local behavior = pixel.diode.get_control_behavior()
+      if behavior ~= nil then
 
-    local behavior = pixel.diode.get_control_behavior()
-    if behavior ~= nil then
+        --make sure we are using colors in Pixel
+        behavior.use_colors = true
 
-      --make sure we are using colors in Pixel
-      behavior.use_colors = true
-
-      add_to_redraw_queue(pixel, behavior.color)
-    else
-      add_to_redraw_queue(pixel, Colors.white)
-    end
-
-    Redraw_Queue.last_updated_pixel_id = id
+        add_to_redraw_queue(pixel, behavior.color)
+      else
+        add_to_redraw_queue(pixel, Colors.white)
+      end
   end
+end
+
+function on_changed_pixels_checkup(event)
+  register_changed_pixels()
 end
