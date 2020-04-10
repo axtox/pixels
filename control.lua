@@ -14,6 +14,7 @@ require('scripts.build')
 require('scripts.remove')
 require('scripts.render.draw')
 require('scripts.render.checkup')
+require('scripts.debug')
 
 --- Filter rules for Pixels
 local pixel_event_filters=
@@ -36,7 +37,8 @@ script.on_event(defines.events.on_robot_pre_mined, on_pixel_removed, pixel_event
 script.on_event(defines.events.on_entity_died, on_pixel_removed, pixel_event_filters)
 
 -- Regular check and redraw
-script.on_nth_tick(1, on_redraw)
+script.on_event(defines.events.on_tick, on_checkup)
+--script.on_nth_tick(3, on_checkup)
 
 -- Initialization
 script.on_init(initialize)

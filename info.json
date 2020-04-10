@@ -6,5 +6,5 @@
   "homepage": "localhost",
   "dependencies": ["base"],
   "description": "Shows pixels directly on map, according to the curcuit color you provide, tracking any changes in real-time",
-  "factorio_version" : "0.18"
+  "factorio_version" : "0.17"
 }

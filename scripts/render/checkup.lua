@@ -32,11 +32,18 @@ function scan_changed_pixels()
 
   local id, pixel
   for i = 1, 350, 1 do
+    --count(Pixels)
     -- get next pixel
     id, pixel = next(Pixels, Redraw_Queue.last_updated_pixel_id)
     if pixel == nil then
       id, pixel = next(Pixels, nil)
+
+      -- if there's still no pixels, the Pixels is empty
+      if pixel == nil then
+        return
+      end
     end
+
 
     local behavior = pixel.diode.get_control_behavior()
     if behavior ~= nil then
@@ -51,4 +58,13 @@ function scan_changed_pixels()
 
     Redraw_Queue.last_updated_pixel_id = id
   end
+end
+
+function on_checkup(event)
+    -- iterate over fixed amount of pixels and find changed ones
+    scan_changed_pixels()
+
+    -- do a redraw
+    redraw_changed_pixels()
+    print(debug)
 end

@@ -6,7 +6,7 @@ Pixels = nil
 
 ---List of pending pixels to update
 Redraw_Queue = nil
-
+debug = "nope"
 
 --- Generate initial data
 -- Creates global.all_pixels table for all surfaces
@@ -30,4 +30,5 @@ function setup_global_variables()
     Surface = global.current_surface
     Pixels = global.all_pixels[Surface.name]
     Redraw_Queue = global.redraw_queue
+    debug = "on laod"
 end
