@@ -1,0 +1,14 @@
+{
+    "Lua.diagnostics.globals": [
+        "on_regular_check",
+        "script",
+        "defines",
+        "global",
+        "game",
+        "serpent",
+        "settings"
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global"
+    ]
+}
