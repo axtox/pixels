@@ -9,7 +9,7 @@ Name: Pixels</br>
 Mod version: 2.0.0</br>
 Dependencies: base </br>
 Description: Shows colored lamps with enabled coloring conditions directly on map, tracking any changes (in real-time) faster.</br>
-Factorio version: 0.17.*
+Factorio version: 0.18.*
 
 ### Forum link
 [Pixels @ forums.factorio.com](https://forums.factorio.com/#)
