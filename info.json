@@ -1,10 +1,10 @@
 {
   "name": "Pixels",
-  "version": "0.6.0",
+  "version": "2.0.0",
   "title": "Pixels",
   "author": "axtox",
   "homepage": "localhost",
   "dependencies": ["base"],
-  "description": "Shows pixels directly on map, according to the curcuit color you provide, tracking any changes in real-time",
+  "description": "Display your pictures and indicators in real-time directly on the map using Pixels. WARNING: All pixels are being processed at a time, so it is not recommended to create more than 1500 Pixels.",
   "factorio_version" : "0.18"
 }
