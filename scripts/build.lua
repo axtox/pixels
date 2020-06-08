@@ -7,6 +7,7 @@ require('scripts.render.color')
 function on_pixel_built(event)
     --make pixel reference
     local pixel = {
+        id = event.created_entity.unit_number,
         tile = {
             name = get_tile_name(Colors.default),
             position = event.created_entity.position
@@ -16,5 +17,5 @@ function on_pixel_built(event)
 
     draw(pixel)
 
-    Pixels[pixel.diode.unit_number] = pixel
+    Pixels[pixel.id] = pixel
 end

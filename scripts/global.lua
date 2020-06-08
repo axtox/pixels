@@ -16,7 +16,7 @@ function initialize()
         global.all_pixels[surface.name] = {}
     end
 
-    global.current_surface = game.surfaces[1]
+    global.current_surface = game.surfaces.nauvis
     global.redraw_queue = { tiles = {} }
 
     setup_global_variables()

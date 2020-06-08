@@ -24,7 +24,7 @@ local function add_to_redraw_queue(pixel, color)
   -- add pixel to redraw queue only if color has been changed
   if map_color_name ~= pixel.tile.name then
       pixel.tile.name = map_color_name
-      Redraw_Queue.tiles[pixel.diode.unit_number] = pixel.tile
+      Redraw_Queue.tiles[pixel.id] = pixel.tile
   end
 end
 
@@ -32,16 +32,21 @@ local function register_changed_pixels()
   -- if color changed add to queue
   for _,pixel in pairs(Pixels) do
 
-      local behavior = pixel.diode.get_control_behavior()
-      if behavior ~= nil then
+    -- in very rare cases this could happen
+    if not pixel.diode.valid then
+        remove(pixel)
+    end
 
-        --make sure we are using colors in Pixel
-        behavior.use_colors = true
+    local behavior = pixel.diode.get_control_behavior()
+    if behavior ~= nil then
 
-        add_to_redraw_queue(pixel, behavior.color)
-      else
-        add_to_redraw_queue(pixel, Colors.white)
-      end
+      --make sure we are using colors in Pixel
+      behavior.use_colors = true
+
+      add_to_redraw_queue(pixel, behavior.color)
+    else
+      add_to_redraw_queue(pixel, Colors.white)
+    end
   end
 end
 

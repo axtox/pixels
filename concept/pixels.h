@@ -29,6 +29,7 @@ namespace Pixels {
 
 	class Pixel {
 		public:
+			int id;
 			Tile tile;
 			LuaEntity diode;
 	};
