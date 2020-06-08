@@ -6,7 +6,7 @@ Factorio mod (previously named as Lamps On Map) that shows Pixels on the map wit
 
 Type: Mod</br>
 Name: Pixels</br>
-Mod version: 2.0.0</br>
+Mod version: 2.0.1</br>
 Dependencies: base </br>
 Description: Shows colored lamps with enabled coloring conditions directly on map, tracking any changes (in real-time) faster.</br>
 Factorio version: 0.18.*
