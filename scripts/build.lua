@@ -17,5 +17,5 @@ function on_pixel_built(event)
 
     draw(pixel)
 
-    Pixels[pixel.id] = pixel
+    global.all_pixels[global.current_surface.name][pixel.id] = pixel
 end

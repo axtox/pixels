@@ -1,11 +1,11 @@
 ---Reference to the nauvis surface (only nauvis surface is available for now)
-Surface = nil
+--Surface = nil
 
 ---Array that stores all references to Pixels instances in the game
-Pixels = nil
+--Pixels = nil
 
 ---List of pending pixels to update
-Redraw_Queue = nil
+--Redraw_Queue = nil
 
 
 --- Generate initial data
@@ -19,10 +19,10 @@ function initialize()
     global.current_surface = game.surfaces.nauvis
     global.redraw_queue = { tiles = {} }
 
-    setup_global_variables()
+    --setup_global_variables()
 end
 
-function setup_global_variables()
+--[[function setup_global_variables()
     --This is meant for 3 specific reasons and only 3:
         --re-register conditional event handlers
         --re-setup meta tables
@@ -30,4 +30,4 @@ function setup_global_variables()
     Surface = global.current_surface
     Pixels = global.all_pixels[Surface.name]
     Redraw_Queue = global.redraw_queue
-end
+end]]--

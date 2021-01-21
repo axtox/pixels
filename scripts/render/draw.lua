@@ -6,20 +6,20 @@ function get_tile_name(color)
 end
 
 function draw(pixel)
-    Surface.set_tiles({ pixel.tile }, true)
+    global.current_surface.set_tiles({ pixel.tile }, true)
 end
 
 function erase(pixel)
-    local original_tile_name = Surface.get_hidden_tile(pixel.tile.position)
+    local original_tile_name = global.current_surface.get_hidden_tile(pixel.tile.position)
 
-    Surface.set_tiles({{position = pixel.tile.position, name = original_tile_name}}, true)
+    global.current_surface.set_tiles({{position = pixel.tile.position, name = original_tile_name}}, true)
 
-    Surface.set_hidden_tile(pixel.tile.position, nil)
+    global.current_surface.set_hidden_tile(pixel.tile.position, nil)
 end
 
 function on_redraw(event)
     -- do a redraw
-    Surface.set_tiles(Redraw_Queue.tiles, true)
+    global.current_surface.set_tiles(global.redraw_queue.tiles, true)
 
-    Redraw_Queue.tiles = {}
+    global.redraw_queue.tiles = {}
 end

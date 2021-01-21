@@ -24,13 +24,13 @@ local function add_to_redraw_queue(pixel, color)
   -- add pixel to redraw queue only if color has been changed
   if map_color_name ~= pixel.tile.name then
       pixel.tile.name = map_color_name
-      Redraw_Queue.tiles[pixel.id] = pixel.tile
+      global.redraw_queue.tiles[pixel.id] = pixel.tile
   end
 end
 
 local function register_changed_pixels()
   -- if color changed add to queue
-  for _,pixel in pairs(Pixels) do
+  for _,pixel in pairs(global.all_pixels[global.current_surface.name]) do
 
     -- in very rare cases this could happen
     if not pixel.diode.valid then

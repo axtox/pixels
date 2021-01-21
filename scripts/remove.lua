@@ -4,12 +4,12 @@ require('scripts.render.draw')
 function remove(pixel)
     erase(pixel)
 
-    Pixels[pixel.id] = nil
-    Redraw_Queue.tiles[pixel.id] = nil
+    global.all_pixels[global.current_surface.name][pixel.id] = nil
+    global.redraw_queue.tiles[pixel.id] = nil
 end
 
 function on_pixel_removed(event)
     local pixel_id = event.entity.unit_number
 
-    remove(Pixels[pixel_id])
+    remove(global.all_pixels[global.current_surface.name][pixel_id])
 end

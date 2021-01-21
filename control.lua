@@ -41,7 +41,7 @@ script.on_nth_tick(1, on_redraw)
 
 -- Initialization
 script.on_init(initialize)
-script.on_load(setup_global_variables)
+--script.on_load(setup_global_variables)
 
 
 
