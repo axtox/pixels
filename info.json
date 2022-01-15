@@ -1,10 +1,10 @@
 {
   "name": "Pixels",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "title": "Pixels",
   "author": "axtox",
-  "homepage": "localhost",
+  "homepage": "https://mods.factorio.com/mod/Pixels",
   "dependencies": ["base"],
-  "description": "Display your pictures and indicators in real-time directly on the map using Pixels. WARNING: All pixels are being processed at a time, so it is not recommended to create more than 1500 Pixels.",
-  "factorio_version" : "0.18"
+  "description": "Display your pictures and indicators in real-time directly on the map using Pixels. WARNING: All pixels are being processed at a time, so it is not recommended to create more than 15000 Pixels.",
+  "factorio_version" : "1.1"
 }
